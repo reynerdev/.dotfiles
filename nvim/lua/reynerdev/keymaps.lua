@@ -92,4 +92,10 @@ vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<cr>", { desc = "Toggle Nvi
 -- Exit insert mode with jk
 vim.keymap.set("i", "jk", "<Esc>", { desc = "Exit insert mode" })
 
+-- Window navigation
+vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Window left" })
+vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Window down" })
+vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Window up" })
+vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Window right" })
+
 return M
