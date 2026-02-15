@@ -27,6 +27,7 @@ return {
 		},
 		config = function()
 			local map_lsp_keybinds = require("reynerdev.keymaps").map_lsp_keybinds
+			local lspconfig_util = require("lspconfig.util")
 
 			-- List your LSP servers here.
 			local servers = {
@@ -37,6 +38,21 @@ return {
 					autostart = false,
 					cmd = { "vscode-eslint-language-server", "--stdio", "--max-old-space-size=12288" },
 					settings = { format = false },
+					-- Only enable when an ESLint config exists to avoid noisy missing-library notifications.
+					root_dir = function(fname)
+						return lspconfig_util.root_pattern(
+							".eslintrc",
+							".eslintrc.js",
+							".eslintrc.cjs",
+							".eslintrc.json",
+							".eslintrc.yaml",
+							".eslintrc.yml",
+							"eslint.config.js",
+							"eslint.config.cjs",
+							"eslint.config.mjs",
+							"eslint.config.ts"
+						)(fname)
+					end,
 				},
 				html = {},
 				jsonls = {},
