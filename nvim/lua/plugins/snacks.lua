@@ -18,6 +18,8 @@ return {
 				enabled = true,
 				timeout = 3000,
 				style = "fancy",
+				top_down = false,
+				margin = { top = 0, right = 1, bottom = 1 },
 			},
 			rename = { enabled = true },
 			toggle = { enabled = true },
