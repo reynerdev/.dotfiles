@@ -28,6 +28,8 @@ vim.keymap.set("n", "<leader>ft", require("telescope.builtin").live_grep, { desc
 
 vim.keymap.set("n", "<leader>sc", require("telescope.builtin").git_bcommits, { desc = "[S]earch buffer [C]ommits" })
 
+vim.keymap.set("n", "<leader>gs", require("telescope.builtin").git_status, { desc = "[G]it [S]tatus" })
+
 vim.keymap.set("n", "<leader>/", function()
 	require("telescope.builtin").current_buffer_fuzzy_find(
 		require("telescope.themes").get_dropdown({ previewer = false })
@@ -86,8 +88,8 @@ M.map_lsp_keybinds = function(buffer_number)
 	vim.keymap.set("n", "td", vim.lsp.buf.type_definition, { desc = "LSP: Type definition", buffer = buffer_number })
 end
 
--- Map NvimTree to <leader>e
-vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<cr>", { desc = "Toggle NvimTree" })
+-- Map NvimTree to <leader>e and reveal current file
+vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeFindFileToggle<cr>", { desc = "Toggle NvimTree and find file" })
 
 -- Exit insert mode with jk
 vim.keymap.set("i", "jk", "<Esc>", { desc = "Exit insert mode" })
