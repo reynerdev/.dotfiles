@@ -12,6 +12,12 @@ return {
 					adaptive_size = true,
 					width = 32,
 				},
+				update_focused_file = {
+					enable = true,
+					update_root = {
+						enable = false,
+					},
+				},
 				renderer = {
 					group_empty = true,
 				},
